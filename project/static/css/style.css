@@ -12,6 +12,17 @@ html {
     border-radius: 10px;
 }
 
+.welcome{
+    text-align: center;
+    justify-content: center;
+    color:whitesmoke;
+}
+
+.container {
+    color:white;
+    margin-top: 200px;
+}
+
 .card {
     color:rgb(120, 130, 223);
     border-radius: 10px;
