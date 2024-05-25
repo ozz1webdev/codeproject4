@@ -1,0 +1,21 @@
+.left-panel {
+    width: 20%;
+    height: 100%;
+    float: left;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 100%;
+    float: left;
+    border: 0px;
+}
+
+.right-panel {
+    width: 20%;
+    height: 100%;
+    float: right;
+}

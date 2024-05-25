@@ -1,4 +1,4 @@
-html {
+html, body {
     color:white;
 }
 
@@ -17,18 +17,21 @@ html {
     justify-content: center;
     color:whitesmoke;
 }
-
 .container {
     color:white;
-    margin-top: 200px;
+    width: 100%;
+    height: 88%;
 }
 
-.card {
-    color:rgb(120, 130, 223);
-    border-radius: 10px;
-    width: 500px;
-    height: 600px;
+/** Form **/
+.form {
+    width: 50%;
+    margin: 30% auto;
+    box-shadow: var(--smal-box-shadow);
+    border-radius: 5px;
 }
+
+
 /* Navbar style */
 .navbar-brand {
     color:white;
@@ -50,7 +53,7 @@ html {
 
 .footer {
     width: 100%;
-    height: 70px;
+    height: 5%;
     position: absolute;
     bottom: 0px;
     color: white;

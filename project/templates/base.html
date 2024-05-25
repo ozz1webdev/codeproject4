@@ -11,12 +11,16 @@
     <link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/background.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+
 </head>
 <body>
     {% include 'include/backgound.html' %}
     {% include 'include/navbar.html' %}
 
-    <div class="glass container">
+    {% include 'include/footer.html' %}
+
+    <div class="glass container-fluid">
         {% block content %}{% endblock %}
     </div>
     {% include 'include/footer.html' %}
