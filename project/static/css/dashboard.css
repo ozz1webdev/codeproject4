@@ -15,6 +15,7 @@
 }
 
 .right-panel {
+    text-align: center;
     width: 20%;
     height: 100%;
     float: right;
