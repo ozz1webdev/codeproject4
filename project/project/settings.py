@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -51,6 +51,11 @@ INSTALLED_APPS = [
     'allauth.account',
     'crispy_forms',
     'crispy_bootstrap5',
+    'cloudinary',
+    'django_summernote',
+    'cloudinary_storage',
+    'django_resized',
+
 
 ]
 
@@ -156,6 +161,11 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
+
+MEDIA_URL = '/media/'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 # Default primary key field type
