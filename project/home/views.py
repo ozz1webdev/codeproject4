@@ -1,6 +1,6 @@
-from django.views.generic import ( 
-        TemplateView, ListView, 
-        CreateView, UpdateView, 
+from django.views.generic import (
+        TemplateView, ListView,
+        CreateView, UpdateView,
         DeleteView, DetailView
     )
 from django.contrib.auth.mixins import (
@@ -12,17 +12,16 @@ from .models import Post
 # Create your views here.
 
 
-class Dashboard(ListView):
+class home(ListView):
     """
-    This class is used to display dashboard
+    This class is used to display all posts
     """
-    template_name = 'home/dashboard.html'
+    template_name = 'home/home.html'
     model = Post
     context_object_name = 'posts'
 
-
-class home(TemplateView):
-    template_name = 'home/home.html'
+    def get_queryset(self):
+        return Post.objects.all().order_by('-created_on')
 
 
 # @login_required(login_url="accounts/login")
@@ -30,7 +29,7 @@ class addPost(LoginRequiredMixin, CreateView):
     """
     This class is used to add post
     """
-    
+
     template_name = 'home/add_post.html'
     model = Post
     form_class = CreatePost

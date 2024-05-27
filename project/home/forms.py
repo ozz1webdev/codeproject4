@@ -10,7 +10,7 @@ class CreatePost(forms.ModelForm):
             'title',
             'content',
             'image',
-            'youtube_link'
+            'video',
             ]
 
         content = forms.CharField(widget=SummernoteWidget())
@@ -23,5 +23,5 @@ class CreatePost(forms.ModelForm):
             'title': 'Title',
             'content': 'Content',
             'image': 'Image',
-            'youtube_link': 'Share Youtube Link'
+            'video': 'Embed Youtube Link'
         }

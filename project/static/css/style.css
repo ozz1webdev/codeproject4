@@ -1,7 +1,6 @@
 html, body {
     color:white;
 }
-
 /* GLASS CARD */
 
 .glass {
@@ -17,7 +16,11 @@ html, body {
     justify-content: center;
     color:whitesmoke;
 }
-.container {
+.home-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     color:white;
     width: 100%;
     height: 88%;
@@ -44,27 +47,39 @@ html, body {
 .navbar-nav>li>a:hover, .navbar-nav>li>a:focus {
     color: red;
 }
-
-.navbar-nav>li>a.active {
-    color:red;
+.navbar-nav>li>a>.active { 
+    color: #28A745; 
 }
 
 /* footer style */
 
 .footer {
+    display: flex;
+    flex-direction: row;
     width: 100%;
     height: 5%;
     position: absolute;
     bottom: 0px;
-    color: white;
+    left:0px;
+}
+
+.footer-text {
+    position: absolute;
+    top:15px;
+    width: 10%;
+    color:white;
+    text-align: center;
+
 }
 
 .footer-logos {
+    position: absolute;
+    bottom: 10px;
+    right: 0px;
+    width: 300px;
     display: flex;
     flex-direction: row;
-    padding-right: 50px;
-    justify-content: right;
-    justify-items: center;
+    justify-content: center;
     align-items: center;
     gap: 20px;
 }
@@ -73,12 +88,12 @@ html, body {
     width: 40px;
     height: 40px;
 }
-
+/* Add Post */
 .addPostCard {
+    color:white;
     width: 560px;
     padding: 20px;
     margin: 20px;
-    text-align: center;
     justify-content: center;
     justify-items: center;
     align-items: center;

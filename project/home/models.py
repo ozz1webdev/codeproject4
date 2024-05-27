@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from embed_video.fields import EmbedVideoField
 
 
 # Create your models here.
@@ -12,7 +13,7 @@ class Post(models.Model):
     title = models.CharField(max_length=300, unique=True, null=False, blank=False)
     content = models.TextField()
     image = CloudinaryField('image', default='placeholder', null=True, blank=True)
-    youtube_link = models.CharField(max_length=300, null=True, blank=True)
+    video = EmbedVideoField(max_length=800, null=True, blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     likes_count = models.ManyToManyField(User, related_name='post_likes', blank=True)

@@ -12,18 +12,17 @@
     <link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/background.css' %}">
-    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
 
 </head>
 <body>
     {% include 'include/backgound.html' %}
     {% include 'include/navbar.html' %}
 
-    {% include 'include/footer.html' %}
-
-    <div class="glass container-fluid">
+    <div class="home-container">
         {% block content %}{% endblock %}
     </div>
+
     {% include 'include/footer.html' %}
 
     <script src="{% static 'js/bootstrap.bundle.min.js'%}" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

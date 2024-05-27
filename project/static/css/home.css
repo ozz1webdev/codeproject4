@@ -2,25 +2,32 @@
     width: 20%;
     height: 100%;
     float: left;
+    border: 10px solid green;
 }
 
 .main {
+    color:white;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
     width: 60%;
     height: 100%;
     float: left;
-    border: 0px;
+    border: 10px solid white;
+    overflow: auto;
+    gap:50px;
 }
 
 .right-panel {
     text-align: center;
     width: 20%;
     height: 100%;
+    border: 10px solid blue;
     float: right;
 }
 
 .card {
-    color:white;
+    color:whitesmoke;
 }

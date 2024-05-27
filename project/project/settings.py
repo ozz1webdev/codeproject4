@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django_resized',
     'whitenoise.runserver_nostatic',
+    'embed_video',
 
 
 ]
