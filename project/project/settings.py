@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'cloudinary_storage',
     'django_resized',
+    'whitenoise.runserver_nostatic',
 
 
 ]
@@ -63,6 +64,7 @@ SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -155,18 +157,25 @@ LOGIN_REDIRECT_URL = '/'
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
+# SUMMERNOTE THEME
+SUMMERNOTE_THEME = 'bs4'  # Show summernote with Bootstrap4 
+# bs3: Bootstrap3 theme
+# bs4: Bootstrap4 theme
+# bs5: Bootstrap5 theme
+# lite: Lite UI theme (without Bootstrap)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
+# STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+# CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
 
 MEDIA_URL = '/media/'
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
+# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
