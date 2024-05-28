@@ -2,7 +2,6 @@
     width: 20%;
     height: 100%;
     float: left;
-    border: 10px solid green;
 }
 
 .main {
@@ -11,11 +10,9 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: row;
     width: 60%;
     height: 100%;
-    float: left;
-    border: 10px solid white;
     overflow: auto;
     gap:50px;
 }
@@ -24,10 +21,10 @@
     text-align: center;
     width: 20%;
     height: 100%;
-    border: 10px solid blue;
     float: right;
 }
 
 .card {
     color:whitesmoke;
+    
 }

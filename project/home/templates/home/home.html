@@ -19,12 +19,8 @@
                     <div class="glass card" style="width: 560px;">
                         {{ post.image }}
                         <br>
-                        {% video post.video as my_video %}
-                        {% video my_video "large" %}
-                        {% endvideo %}
-                        <!-- Or embed shortcut: -->
-                        {% video my_video '560x315' %}
-                        <!--<iframe width="560" height="315" src="{{ post.youtube_link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>-->
+                        <!--{% video my_video '560x315' %}-->
+                        {% video post.video '560x315' %}
                         <div class="card-body">
                         <h5 class="card-title">{{ post.title }}</h5>
                         <p class="card-text">{{ post.content }}</p>
