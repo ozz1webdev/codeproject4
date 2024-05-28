@@ -1,0 +1,101 @@
+html, body {
+    color:white;
+}
+/* GLASS CARD */
+
+.glass {
+    background: rgba( 42, 97, 170, 0.1 );
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur( 3px );
+    -webkit-backdrop-filter: blur( 3px );
+    border-radius: 10px;
+}
+
+.welcome{
+    text-align: center;
+    justify-content: center;
+    color:whitesmoke;
+}
+.home-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color:white;
+    width: 100%;
+    height: 88%;
+}
+
+/** Form **/
+.form {
+    width: 50%;
+    margin: 30% auto;
+    box-shadow: var(--smal-box-shadow);
+    border-radius: 5px;
+}
+
+
+/* Navbar style */
+.navbar-brand {
+    color:white;
+}
+
+.navbar-nav>li>a {
+    color: white;
+}
+
+.navbar-nav>li>a:hover, .navbar-nav>li>a:focus {
+    color: red;
+}
+.navbar-nav>li>a>.active { 
+    color: #28A745; 
+}
+
+/* footer style */
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 5%;
+    position: absolute;
+    bottom: 0px;
+    left:0px;
+}
+
+.footer-text {
+    position: absolute;
+    top:15px;
+    width: 10%;
+    color:white;
+    text-align: center;
+
+}
+
+.footer-logos {
+    position: absolute;
+    bottom: 10px;
+    right: 0px;
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer a img {
+    width: 40px;
+    height: 40px;
+}
+/* Add Post */
+.addPostCard {
+    color:white;
+    width: 560px;
+    padding: 20px;
+    margin: 20px;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    border-radius: 10px;
+}

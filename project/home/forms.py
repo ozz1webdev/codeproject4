@@ -10,6 +10,7 @@ class CreatePost(forms.ModelForm):
             'title',
             'content',
             'image',
+            'image_alt',
             'video',
             ]
 
@@ -23,5 +24,6 @@ class CreatePost(forms.ModelForm):
             'title': 'Title',
             'content': 'Content',
             'image': 'Image',
+            'image_alt': 'Image Alt',
             'video': 'Embed Youtube Link'
         }

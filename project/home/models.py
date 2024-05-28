@@ -1,7 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
-from cloudinary.models import CloudinaryField
+# from cloudinary.models import CloudinaryField
 from embed_video.fields import EmbedVideoField
+from django_resized import ResizedImageField
 
 
 # Create your models here.
@@ -12,8 +13,14 @@ class Post(models.Model):
     user = models.ForeignKey(User, related_name='post_owner', on_delete=models.CASCADE)
     title = models.CharField(max_length=300, unique=True, null=False, blank=False)
     content = models.TextField()
-    image = CloudinaryField('image', default='placeholder', null=True, blank=True)
-    video = EmbedVideoField(max_length=800, null=True, blank=True)
+    image = ResizedImageField(
+        upload_to='postImages/',
+        null=True,
+        quality=75,
+        size=[400, None],
+        blank=True)
+    image_alt = models.CharField(max_length=200, null=True, blank=True)
+    video = EmbedVideoField(max_length=500, null=True, blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     likes_count = models.ManyToManyField(User, related_name='post_likes', blank=True)
@@ -47,3 +54,18 @@ class Comment(models.Model):
 
     def __str__(self):
         return 'Comment {} by {}'.format(self.body, self.name)
+
+
+class Friends(models.Model):
+    """
+    Friends list
+    """
+
+    user = models.ForeignKey(User, related_name='user', on_delete=models.CASCADE)
+    friend = models.ForeignKey(User, related_name='friend', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.user
+
+    class Meta:
+        unique_together = ('user', 'friend')

@@ -39,7 +39,14 @@ html, body {
 .navbar-brand {
     color:white;
 }
-
+.navbar-brand>img {
+    width: 120px;
+    height: 40px;
+}
+.navbar-collapse>ul>li>a>img {
+    width: 40px;
+    height: 40px;
+}
 .navbar-nav>li>a {
     color: white;
 }

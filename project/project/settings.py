@@ -159,7 +159,7 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 # SUMMERNOTE THEME
-SUMMERNOTE_THEME = 'bs4'  # Show summernote with Bootstrap4 
+SUMMERNOTE_THEME = 'bs5'  # Show summernote with Bootstrap5
 # bs3: Bootstrap3 theme
 # bs4: Bootstrap4 theme
 # bs5: Bootstrap5 theme
@@ -168,7 +168,7 @@ SUMMERNOTE_THEME = 'bs4'  # Show summernote with Bootstrap4
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
@@ -176,6 +176,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 MEDIA_URL = '/media/'
 # DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # Default primary key field type
