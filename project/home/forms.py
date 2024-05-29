@@ -1,6 +1,6 @@
 from django import forms
 from .models import Post
-from django_summernote.widgets import SummernoteWidget
+from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
 
 
 class CreatePost(forms.ModelForm):
@@ -17,7 +17,8 @@ class CreatePost(forms.ModelForm):
         content = forms.CharField(widget=SummernoteWidget())
 
         widget = {
-            'content': SummernoteWidget()
+            # 'content': SummernoteWidget()
+            'content': SummernoteInplaceWidget()
         }
 
         labels = {

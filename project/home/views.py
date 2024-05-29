@@ -38,3 +38,12 @@ class addPost(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super(addPost, self).form_valid(form)
+
+
+class postView(DetailView):
+    """
+    This class is used to display post
+    """
+    template_name = 'home/postView.html'
+    model = Post
+    context_object_name = 'post'

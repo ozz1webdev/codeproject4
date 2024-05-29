@@ -41,11 +41,11 @@ html, body {
 }
 .navbar-brand>img {
     width: 120px;
-    height: 40px;
+    height: 30px;
 }
 .navbar-collapse>ul>li>a>img {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
 }
 .navbar-nav>li>a {
     color: white;
@@ -76,6 +76,7 @@ html, body {
     width: 10%;
     color:white;
     text-align: center;
+    font-size: 0.5rem;
 
 }
 
@@ -92,8 +93,8 @@ html, body {
 }
 
 .footer a img {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
 }
 /* Add Post */
 .addPostCard {

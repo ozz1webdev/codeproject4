@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% load embed_video_tags %}
+{% block title%}Post View{% endblock %}
+
+{% block content %}
+<h1>Post View </h1>
+    <div style="color:white;">
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.content }}</p>
+
+        {% if post.image %}
+        <img src="{{ post.image.url }}" alt="{{ post.image_alt }}" />
+        {% endif %}
+
+        {% if post.video %}
+        <iframe
+            width="560"
+            height="315"
+            src="{{ post.video }}"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+        ></iframe>
+        {% endif %}
+
+        <p>{{ post.created_on }}</p>
+
+        <a href="{% url 'home' %}">Back</a>
+
+        {% if user == post.user %}
+            <a href="{% url 'editPost' post.id %}">Edit</a>
+            <a href="{% url 'deletePost' post.id %}">Delete</a>
+        {% endif %}
+
+<!--    <h2>Comments</h2>
+        {% for comment in post.comments.all %}
+            <p>{{ comment.body }}</p>
+        {% endfor %}
+        <h2>Add Comment</h2>
+        <form method="POST" action="{ url 'addComment' post.id }">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+-->
+
+    </div>
+{% endblock %}
+

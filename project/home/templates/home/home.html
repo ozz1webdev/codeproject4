@@ -13,20 +13,24 @@
         </div>
             
         <!--MAIN PANEL-->
-        <div class="main">
+        <div class="main-panel">
             {% for post in posts %}
-                <a href="{% url 'home'%}">
-                    <div class="glass card" style="width: 560px;">
-                        <img class="card-img-top" src="{{post.image.url}}" alt="{{post.image_alt}}">
+                <a href="{% url 'postView' post.id %}" aria-label="Click to view {{post.title}}">
+                    <div class="glass card" data-id="{{post.id}} data-image={{post.image.url}}">
+                        {% if "placeholder" in post.image.url %}
+                            <img class="card-img-top"
+                            src="https://unsplash.it/480/340">
+                        {% else %}
+                            <img class="card-img-top" src="{{post.image.url}}" alt="{{post.image_alt}}">
+                        {% endif %}
                         <br>
-                        <!--{% video post.video '560x315' %}-->
+                        {% video post.video '600x400' %}
                         <div class="card-body">
-                        <h2 class="card-title">{{ post.title }}</h2>
-                        <p class="card-text">{{ post.content|truncatechars:100 }}</p>
-                        <p>posted on {{ post.created_on }} from {{ post.user }}</p>
-                        <span>{{ post.likes_count }} likes</span>
-                    </div>
-
+                            <h2 class="card-title">{{ post.title }}</h2>
+                            <p class="card-text">{{ post.content|safe|truncatechars:100 }}</p>
+                            <p>posted on {{ post.created_on }} from {{ post.user }}</p>
+                            <span>{{ post.likes_count }} likes</span>
+                        </div>
                     </div>
                 </a>
             {% endfor %}            
@@ -34,12 +38,25 @@
         
         <!--RIGHT PANEL-->
         <div class="right-panel">
-            <h5>
-                <img src="{% static 'icons/freunde2.png' %}" alt="freunde icon" width="30" height="30" />
-                Friends
+            <div class="friendsList">
+                <h5>
+                    <img src="{% static 'icons/freunde2.png' %}" alt="freunde icon" width="20" height="20" />
+                    Friends
+                    <hr>
+                </h5>
+            </div>
+            <div class="chat">
+                <h5>
+                    <img src="{% static 'icons/chat.png' %}" alt="chat icon" width="20" height="20" />
+                    Chat
+                </h5>
                 <hr>
-            </h5>
-        </div>    
+            </div>
+        </div>
+        <!--END OF RIGHT PANEL-->
+        <div class="detailViewPage" id="detailViewPage">
+            <!--DETAIL VIEW PAGE ADD FROM JQUERY-->
+        </div>
     {% else %}
         <div class="welcome">
             <h1>Welcome to the Home Page</h1>
