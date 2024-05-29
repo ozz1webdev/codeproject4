@@ -1,20 +1,30 @@
 $(document).ready(function() {
 
-	$('#detailViewPage').hide(); //Hide div with id=detailViewPage
+	$('#detailView').hide();
 
 	$('.card').on('click',function() {
         var id = $(this).data('id');
-        var image = $(this).data('image');
+        var page_url = '/postView/' + id + '/';
 
 		// $('h1').addClass('textColorRed');
 
-		$('#detailViewPage').slideToggle('slow');
+		$('#detailView').slideToggle('slow');
 						//slideToggle, fadeToggle
 
-        $('#detailViewPage').html(
-            + "<h1 id='detailViewPageTitle'> " + id + " </h1>"
-            + "<img id='detailViewPageImage' src='" + "{{post.image.url}}" + image + "'>"
-        );
+        //$('#detailView').html(
+        //    + "iframe src='http://localhost:8000/postView/' + id +'/' "
+        //);
+        $('#detailView').load(page_url);
 	});
 
+/*    $('#postView_Close_Button').on('click',function() {
+        $('#detailView').fadeToggle('slow');
+        $('#detailView').hide();
+    });
+*/
 });
+
+function postView_Close_Button() {
+    $('#detailView').fadeToggle('slow');
+    //$('#detailView').hide();
+}

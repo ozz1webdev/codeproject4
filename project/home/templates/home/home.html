@@ -15,8 +15,9 @@
         <!--MAIN PANEL-->
         <div class="main-panel">
             {% for post in posts %}
-                <a href="{% url 'postView' post.id %}" aria-label="Click to view {{post.title}}">
-                    <div class="glass card" data-id="{{post.id}} data-image={{post.image.url}}">
+<!--                <a href="{% url 'postView' post.id %}" aria-label="Click to view {{post.title}}"> -->
+                <a id="cardAnchor">
+                    <div class="glass card" data-id="{{post.id}}">
                         {% if "placeholder" in post.image.url %}
                             <img class="card-img-top"
                             src="https://unsplash.it/480/340">
@@ -54,8 +55,8 @@
             </div>
         </div>
         <!--END OF RIGHT PANEL-->
-        <div class="detailViewPage" id="detailViewPage">
-            <!--DETAIL VIEW PAGE ADD FROM JQUERY-->
+        <div class="detailView" id="detailView">
+            <!--DETAIL VIEW PAGE MANAGE FROM JQUERY-->
         </div>
     {% else %}
         <div class="welcome">
