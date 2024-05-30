@@ -3,8 +3,10 @@
 html, body {
     height: 100%;
   }
-  
   body {
+    background-image: linear-gradient(315deg, #5a0861 0%, #551e89 74%);
+  }
+  bodyy {
     background: url('../images/forest-night.jpg');
     background-size: cover;
   }
