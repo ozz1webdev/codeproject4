@@ -14,6 +14,7 @@ class Post(models.Model):
     title = models.CharField(max_length=300, unique=True, null=False, blank=False)
     content = models.TextField()
     image = ResizedImageField(
+        default='default.jpg',
         upload_to='postImages/',
         null=True,
         quality=75,

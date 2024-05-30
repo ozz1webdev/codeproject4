@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
 	$('#detailView').hide();
+	$('#profile-detailView').hide();
 
 	$('.card').on('click',function() {
         var id = $(this).data('id');
@@ -25,6 +26,16 @@ $(document).ready(function() {
 });
 
 function postView_Close_Button() {
-    $('#detailView').fadeToggle('slow');
+    $('#detailView').fadeOut('slow');
+    $('#profile-detailView').fadeOut('slow');
     //$('#detailView').hide();
+}
+
+function postView(id) {
+    var page_url = '/postView/' + id + '/';
+
+    $('#profile-detailView').slideToggle('slow');
+                    //slideToggle, fadeToggle
+
+    $('#profile-detailView').load(page_url);
 }

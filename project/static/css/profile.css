@@ -1,0 +1,12 @@
+.profile-detailView {
+    width:60%;
+    height: 70%;
+    position: absolute;
+    left:15%;
+    top: 15%;
+    bottom:auto;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    overflow: auto;
+}

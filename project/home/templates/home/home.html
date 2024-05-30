@@ -28,9 +28,8 @@
 <!--                <a href="{% url 'postView' post.id %}" aria-label="Click to view {{post.title}}"> -->
                 <a id="cardAnchor">
                     <div class="glass card" data-id="{{post.id}}">
-                        {% if "placeholder" in post.image.url %}
-                            <img class="card-img-top"
-                            src="https://unsplash.it/480/340">
+                        {% if "default.jpg" in post.image.url %}
+                            <p>No Image</p>
                         {% else %}
                             <img class="card-img-top" src="{{post.image.url}}" alt="{{post.image_alt}}">
                         {% endif %}

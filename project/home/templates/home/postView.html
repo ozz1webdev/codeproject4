@@ -4,7 +4,9 @@
     <p>{{ post.content }}</p>
 
     {% if post.image %}
-    <img src="{{ post.image.url }}" alt="{{ post.image_alt }}" />
+        <img src="{{ post.image.url }}" alt="{{ post.image_alt }}" />
+    {% else%}
+        <p>No Image</p>
     {% endif %}
 
     {% if post.video %}
@@ -24,8 +26,8 @@
     <div id="postView_Close_Button" onclick="postView_Close_Button()" class="btn btn-primary">Close</div>
 
     {% if user == post.user %}
-        <a href="{% url 'editPost' post.id %}">Edit</a>
-        <a href="{% url 'deletePost' post.id %}">Delete</a>
+        <a class="btn btn-primary" href="{% url 'editPost' post.id %}">Edit</a>
+        <a class="btn btn-primary" href="{% url 'deletePost' post.id %}">Delete</a>
     {% endif %}
 
 <!--    <h2>Comments</h2>

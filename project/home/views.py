@@ -49,6 +49,15 @@ class postView(DetailView):
     context_object_name = 'post'
 
 
+class postView2(DetailView):
+    """
+    This class is used to display post
+    """
+    template_name = 'home/postView.html'
+    model = Post
+    context_object_name = 'post'
+
+
 class DeletePost(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     """
     This class is used to delete post

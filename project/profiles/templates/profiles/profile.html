@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Profile - {{ profile.user.username }}{% endblock %}
+
+{% block content %}
+<div class="container p-4">
+    <div class="profile">
+        <div class="info">
+            <div class="profile-img text-center">
+                {% if profile.image %}
+                    <img src="{{ profile.image.url }}" alt="{{ profile.user.username }}'s profile image">
+                {% else %}
+                    <img src="{% static 'images/defaultProfile.png' %}" alt="default profile image">
+                {% endif %}
+            </div>
+            <h1>Username : {{ profile.user.username }}</h1>
+            <p>Bio: {{ profile.bio|safe }}</p>
+            <p>Name and Lastname : {{ profile.name }} {{ profile.lastname }}</p>
+            <p>Birthdate : {{ profile.birthdate|date:"d.M.Y" }}</p>
+            <p>Location : {{ profile.location }}</p>
+            <p>Joined On : {{ profile.joined_on|date:"d.M.Y" }}</p>
+            <p>Hobbys : {{ profile.hobbys }}</p>
+            <p>Posts : {{ profile.user.post_owner.count }}</p>
+            
+            {% if request.user == profile.user %}
+                <button id="editProfileButton" class="btn btn-primary w-25 mb-4">Edit Profile</button>
+            {% endif %}
+
+        </div>
+        <div class="profile-posts">
+            <h2 text-center pb-4>Posts</h2>
+            {% for post in profile.user.post_owner.all %}
+                <a href="#" onclick="postView({{ post.id }})"><h3>{{ post.title }}</h3></a>
+                <h3>Created on : {{ post.created_on }}</h3>
+                <hr>
+            {% endfor %}
+        </div>
+
+        <div id="profile-detailView" class="profile-detailView">
+            <!--Manage from jquery-->
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+
