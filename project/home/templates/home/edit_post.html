@@ -7,10 +7,10 @@
     <form method="POST" enctype="multipart/form-data" class="p-2 form">
         <h1 class="text-center">Edit Post</h1>
         {% csrf_token %}
-        {{ form.media }} 
+        {{ form.media }}
         {{ form|crispy }}
         <div class="text-center">
-            <button type="submit" class="btn btn-primary mt-2">Edit Post</button>
+            <button type="submit" class="btn btn-primary mt-2">Submit Changes</button>
         </div>
     </form>
 </div>

@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1','debian','ubuntu']
 
 
 # Application definition
@@ -58,8 +58,6 @@ INSTALLED_APPS = [
     'django_resized',
     'whitenoise.runserver_nostatic',
     'embed_video',
-
-
 ]
 
 SITE_ID = 1

@@ -54,8 +54,9 @@ html, body {
 .navbar-nav>li>a:hover, .navbar-nav>li>a:focus {
     color: red;
 }
-.navbar-nav>li>a>.active { 
-    color: #28A745; 
+.active {
+    border-bottom: 2px solid var(--blue);
+    font-weight: 500;
 }
 
 /* footer style */

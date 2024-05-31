@@ -6,9 +6,14 @@ class ProfileForm(forms.ModelForm):
     """Form to Create profile"""
     class Meta:
         model = Profile
-        fields = ['image', 'bio']
+        fields = ['image', 'name', 'lastname', 'bio',
+                  'location', 'hobbys']
 
         labels = {
             'image': 'Profile Picture',
             'bio': 'Bio',
+            'name': 'Name',
+            'lastname': 'Lastname',
+            'location': 'Location',
+            'hobbys': 'Hobbys',
         }

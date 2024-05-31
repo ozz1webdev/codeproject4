@@ -27,7 +27,7 @@
 
     {% if user == post.user %}
         <a class="btn btn-primary" href="{% url 'editPost' post.id %}">Edit</a>
-        <a class="btn btn-primary" href="{% url 'deletePost' post.id %}">Delete</a>
+        <a class="btn btn-danger" href="{% url 'deletePost' post.id %}">Delete</a>
     {% endif %}
 
 <!--    <h2>Comments</h2>

@@ -1,11 +1,12 @@
 from django.views.generic import TemplateView, UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+
 from .models import Profile
 from .forms import ProfileForm
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-# Create your views here.
 
 
 class Profiles(TemplateView):
+    """User Profile View"""
     template_name = 'profiles/profile.html'
 
     def get_context_data(self, **kwargs):
@@ -24,7 +25,7 @@ class EditProfile(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     form_class = ProfileForm
 
     def form_valid(self, form):
-        self.success_url = f'/profiles/view/{self.kwargs["pk"]}'
+        self.success_url = f'/profiles/user/{self.kwargs["pk"]}/'
         return super().form_valid(form)
 
     def test_func(self):

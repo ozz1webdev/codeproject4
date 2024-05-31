@@ -23,7 +23,6 @@ class Profile(models.Model):
     bio = models.TextField(max_length=2500, blank=True)
     name = models.CharField(max_length=100, blank=True)
     lastname = models.CharField(max_length=100, blank=True)
-    birthdate = models.DateField(null=True, blank=True)
     location = models.CharField(max_length=100, blank=True)
     joined_on = models.DateTimeField(auto_now_add=True)
     hobbys = models.CharField(max_length=100, blank=True)

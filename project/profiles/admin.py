@@ -6,7 +6,7 @@ from .models import Profile
 
 class ProfileAdmin(admin.ModelAdmin):
     list_display = ('pk', 'user', 'image', 'bio', 'name', 'lastname',
-                    'birthdate', 'location', 'joined_on', 'hobbys')
+                    'location', 'joined_on', 'hobbys')
 
 
 admin.site.register(Profile, ProfileAdmin)
