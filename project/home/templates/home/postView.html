@@ -29,19 +29,6 @@
         <a class="btn btn-danger" href="{% url 'deletePost' post.id %}">Delete</a>
     {% endif %}
     <hr>
-    <div class="comments">
-
-<!--        {% if user.is_authenticated %}
-            <form method="POST" action="{% url 'addComment' post.id %}">
-                {% csrf_token %}
-                {{ AddCommentForm|crispy }}
-
-                <button type="submit" value="{{ post.id }}" class="btn btn-primary mt-2">Submit</button>
-            </form>
-        {% endif %}
-
-    </div>
--->
     <div class="postView-footer">
         <p class="card-text"><small>Added {{ post.created_on }} from {{ post.user }}</small></p>
         <span><strong>Likes {{ post.likes.count }}</strong></span>

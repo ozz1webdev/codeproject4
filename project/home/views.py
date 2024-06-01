@@ -110,20 +110,19 @@ class PostLike(RedirectView):
         return HttpResponseRedirect(reverse('home'))
 
 
-class AddComment(UpdateView):
+class Comments(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     """
     This class is used to add comment
     """
     model = Comment
+    template_name = 'home/comments.html'
     form = AddCommentForm
-
-    def post(self, request, *args, **kwargs):
-        post = get_object_or_404(Post, id=kwargs.get('pk'))
-        post.comments.add(request.user.id)
-        post.save()
-
-        return HttpResponseRedirect(reverse('home'))
+    context_object_name = 'comments'
 
     def form_valid(self, form):
         form.instance.user = self.request.user
-        return super(AddComment, self).form_valid(form)
+        return super(Comments, self).form_valid(form)
+
+    def test_func(self):
+        post = self.get_object()
+        return self.request.user == post.user

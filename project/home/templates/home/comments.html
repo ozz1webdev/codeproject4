@@ -1,0 +1,30 @@
+<h1>{{ comments.post.title }} - Comments</h1>
+
+{% for comment in comments %}
+    <div class="allComments">
+        <h3>{{ comment.name }}</h3>
+        <p>{{ comment.body }}</p>
+    </div>
+{% endfor %}
+
+<div class="addComment">
+
+    {% if user.is_authenticated %}
+        <form method="post" class="p-2 form">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <input type="submit" value="Add Comment" class="btn btn-primary w-25">
+        </form>
+    {% else %}
+        <p>You must be logged in to add a comment</p>
+    {% endif %}
+</div>
+
+{% if user == comments.post.user %}
+    <a class="btn btn-primary" href="{% url 'editComment' comments.id %}">Edit</a>
+    <a class="btn btn-danger" href="{% url 'deleteComment' comments.id %}">Delete</a>
+{% endif %}
+
+
+<button class="btn btn-primary" onclick="flipCardBack()">Back</button>
+<div id="postView_Close_Button" onclick="postView_Close_Button()" class="btn btn-primary">Close</div>

@@ -87,20 +87,37 @@
             </div>
         </div>
         <!--END OF RIGHT PANEL-->
+        
+<!-- First Version of Flip-Card
 
         <div class="flip-card" id="flip-card">
             <div id="flip-card-inner" class="flip-card-inner">
                 <div class="flip-card-front" id="flip-card-front">
-                    <!-- <div class="detailView" id="detailView"> -->
-                    <!--DETAIL VIEW PAGE MANAGE FROM JQUERY-->
                 </div>
                 <div class="flip-card-back">
                     <h1>Comments</h1>
                     <p>Architect & Engineer</p>
                     <p>We love that guy</p>
+                    <button class="btn btn-primary" onclick="flipCardBack()">Back</button>
+                    <div id="postView_Close_Button" onclick="postView_Close_Button()" class="btn btn-primary">Close</div>
                 </div>
             </div>
         </div>
+-->
+<!--FLIP-BOX-->
+        <div class="flip-box" id="flip-card">
+            <div id="front" class="front">
+                <div class="content" id="flip-card-front">
+<!--                    FRONT                                  -->
+                </div>
+            </div>
+            <div id="back" class="back">
+                <div class="content" id="flip-card-back">
+<!--                    BACK                                  -->
+                </div>
+            </div>
+        </div>
+<!--END OF FLIP-BOX-->
 
     {% else %}
         <div class="welcome">

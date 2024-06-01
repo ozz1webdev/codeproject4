@@ -20,13 +20,22 @@ $(document).ready(function() {
 });
 
 function cardButtonClick(id) {
-    var page_url = '/postView/' + id + '/';
+    var frontPage_url = '/postView/' + id + '/';
+    var backPage_url = '/comments/' + id + '/';
+
     $('#flip-card').slideDown('slow');
-    $('#flip-card-front').load(page_url);
+    $('#front').load(frontPage_url);
+    $('#back').load(backPage_url);
 }
 
 function postView_Close_Button() {
     // $('#detailView').fadeOut('slow');
+    $('#back').css('transform', 'rotateY(-180deg)');
+    $('#back').css('z-index', '-1');
+
+    $('#front').css('transform', 'rotateY(0deg)');
+    $('#front').css('z-index', '10');
+
     $('#flip-card').fadeOut('slow');
     $('#profile-detailView').fadeOut('slow');
     //$('#detailView').hide();
@@ -42,6 +51,17 @@ function postView(id) {
 }
 
 function postViewFlip() {
-    $('#flip-card').addClass('flip-card-rotate');
-    $('#flip-card-inner').addClass('flip-card-rotate');
+    $('#back').css('transform', 'rotateY(0deg)');
+    $('#back').css('z-index', '10');
+
+    $('#front').css('transform', 'rotateY(180deg)');
+    $('#front').css('z-index', '-1');
+
+}
+function flipCardBack() {
+    $('#back').css('transform', 'rotateY(-180deg)');
+    $('#back').css('z-index', '-1');
+
+    $('#front').css('transform', 'rotateY(0deg)');
+    $('#front').css('z-index', '10');
 }
