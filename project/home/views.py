@@ -1,13 +1,17 @@
 from django.views.generic import (
         TemplateView, ListView,
         CreateView, UpdateView,
-        DeleteView, DetailView
+        DeleteView, DetailView,
+        RedirectView
     )
+from django.views import View
 from django.contrib.auth.mixins import (
         LoginRequiredMixin, UserPassesTestMixin
     )
-from .forms import CreatePost
-from .models import Post
+from django.shortcuts import render, get_object_or_404, reverse
+from django.http import HttpResponseRedirect
+from .forms import CreatePost, AddCommentForm
+from .models import Post, Comment
 
 # Create your views here.
 
@@ -87,3 +91,39 @@ class EditPost(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     def test_func(self):
         post = self.get_object()
         return self.request.user == post.user
+
+
+class PostLike(RedirectView):
+    """
+    This class is used to like post
+    """
+    model = Post
+
+    def post(self, request, *args, **kwargs):
+        post = get_object_or_404(Post, id=kwargs.get('pk'))
+        if post.likes.filter(id=request.user.id).exists():
+            post.likes.remove(request.user.id)
+        else:
+            post.likes.add(request.user.id)
+        post.save()
+
+        return HttpResponseRedirect(reverse('home'))
+
+
+class AddComment(UpdateView):
+    """
+    This class is used to add comment
+    """
+    model = Comment
+    form = AddCommentForm
+
+    def post(self, request, *args, **kwargs):
+        post = get_object_or_404(Post, id=kwargs.get('pk'))
+        post.comments.add(request.user.id)
+        post.save()
+
+        return HttpResponseRedirect(reverse('home'))
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(AddComment, self).form_valid(form)

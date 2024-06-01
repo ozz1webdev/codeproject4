@@ -66,3 +66,11 @@
     overflow: auto;
     box-shadow: 0 0 10px rgba(207, 126, 126, 0.5);
 }
+
+.card-footer {
+    display: flex;
+    flex-direction: row;
+}
+.card-footer>span {
+    margin-right: 1px;
+}

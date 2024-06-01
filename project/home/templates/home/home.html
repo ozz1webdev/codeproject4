@@ -25,9 +25,10 @@
         <!--MAIN PANEL-->
         <div class="main-panel">
             {% for post in posts %}
-<!--                <a href="{% url 'postView' post.id %}" aria-label="Click to view {{post.title}}"> -->
-                <a id="cardAnchor">
+<!--                <a href="{% url 'postView2' post.id %}" aria-label="Click to view {{post.title}}"> -->
                     <div class="glass card" data-id="{{post.id}}">
+                        <h2 class="card-title">{{ post.title }}</h2>
+                        <br><hr>
                         {% if "default.jpg" in post.image.url %}
                             <p>No Image</p>
                         {% else %}
@@ -36,13 +37,35 @@
                         <br>
                         {% video post.video '600x400' %}
                         <div class="card-body">
-                            <h2 class="card-title">{{ post.title }}</h2>
                             <p class="card-text">{{ post.content|safe|truncatechars:100 }}</p>
-                            <p>posted on {{ post.created_on }} from {{ post.user }}</p>
-                            <span>{{ post.likes_count }} likes</span>
+                            <!--LIKE BUTTON-->
+                            {% if user.is_authenticated %}
+                                <form method="POST" action="{% url 'post_like' post.id %}">
+                                    {% csrf_token %}
+                                    {% if user in post.likes.all %}
+                                    <button type="submit" class="btn btn-danger" name="post_likes"
+                                        value="{{ post.id }}">
+                                        <img src="{% static 'icons/like.png' %}" alt="like icon" width="20" height="20" />
+                                        Unlike</button>
+                                    {% else %}
+                                    <button type="submit" class="btn btn-primary" name="post_likes"
+                                        value="{{ post.id }}">
+                                        <img src="{% static 'icons/like.png' %}" alt="like icon" width="20" height="20" />
+                                        Like</button>
+                                    {% endif %}
+                                    <button id="card-button" data-id="{{post.id}}" onclick="cardButtonClick({{post.id}})" type="button" class="btn btn-primary" >View Post</button>
+                                </form>
+                            {% else %}
+                                <span>Please Login </span>
+                            {% endif %}
+                            
+                        </div>
+                        <hr>
+                        <div class="card-footer">
+                            <p class="card-text"><small>Added {{ post.created_on }} from {{ post.user }}</small></p>
+                            <span><strong>Likes {{ post.likes.count }}</strong></span>
                         </div>
                     </div>
-                </a>
             {% endfor %}            
         </div>
         
@@ -64,9 +87,21 @@
             </div>
         </div>
         <!--END OF RIGHT PANEL-->
-        <div class="detailView" id="detailView">
-            <!--DETAIL VIEW PAGE MANAGE FROM JQUERY-->
+
+        <div class="flip-card" id="flip-card">
+            <div id="flip-card-inner" class="flip-card-inner">
+                <div class="flip-card-front" id="flip-card-front">
+                    <!-- <div class="detailView" id="detailView"> -->
+                    <!--DETAIL VIEW PAGE MANAGE FROM JQUERY-->
+                </div>
+                <div class="flip-card-back">
+                    <h1>Comments</h1>
+                    <p>Architect & Engineer</p>
+                    <p>We love that guy</p>
+                </div>
+            </div>
         </div>
+
     {% else %}
         <div class="welcome">
             <h1>Welcome to the Home Page</h1>

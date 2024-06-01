@@ -1,45 +1,50 @@
-<h1>Post View </h1>
-<div style="color:black;">
-    <h1>{{ post.title }}</h1>
+{% load embed_video_tags %}
+{% load static%}
+
+<div #id="postView" class="postView">
+    <div class="postView-header">
+        <h1>{{ post.title }}</h1>
+    </div>
+    <hr>
+    <div class="postView-media">
+        {% if post.image %}
+            <img src="{{ post.image.url }}" alt="{{ post.image_alt }}" width="600px" height="400px"  />
+        {% else%}
+            <p>No Image</p>
+        {% endif %}
+
+        {% if post.video %}
+            {% video post.video '600x400' %}
+        {% endif %}
+    </div>
+
     <p>{{ post.content }}</p>
 
-    {% if post.image %}
-        <img src="{{ post.image.url }}" alt="{{ post.image_alt }}" />
-    {% else%}
-        <p>No Image</p>
-    {% endif %}
-
-    {% if post.video %}
-    <iframe
-        width="560"
-        height="315"
-        src="{{ post.video }}"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-    ></iframe>
-    {% endif %}
-
-    <p>Added on{{ post.created_on }} from user {{ post.user }}</p>
-
     <div id="postView_Close_Button" onclick="postView_Close_Button()" class="btn btn-primary">Close</div>
-
+    
+    <a class="btn btn-primary" onclick="postViewFlip()">View Comments</a>
+    
     {% if user == post.user %}
         <a class="btn btn-primary" href="{% url 'editPost' post.id %}">Edit</a>
         <a class="btn btn-danger" href="{% url 'deletePost' post.id %}">Delete</a>
     {% endif %}
+    <hr>
+    <div class="comments">
 
-<!--    <h2>Comments</h2>
-    {% for comment in post.comments.all %}
-        <p>{{ comment.body }}</p>
-    {% endfor %}
-    <h2>Add Comment</h2>
-    <form method="POST" action="{ url 'addComment' post.id }">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Submit</button>
-    </form>
+<!--        {% if user.is_authenticated %}
+            <form method="POST" action="{% url 'addComment' post.id %}">
+                {% csrf_token %}
+                {{ AddCommentForm|crispy }}
+
+                <button type="submit" value="{{ post.id }}" class="btn btn-primary mt-2">Submit</button>
+            </form>
+        {% endif %}
+
+    </div>
 -->
+    <div class="postView-footer">
+        <p class="card-text"><small>Added {{ post.created_on }} from {{ post.user }}</small></p>
+        <span><strong>Likes {{ post.likes.count }}</strong></span>
+    </div>
 
 </div>
