@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     # Custom apps
     'home',
     'profiles',
+    'comments',
 
     # 3rd party
     'allauth',

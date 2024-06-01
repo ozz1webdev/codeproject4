@@ -1,0 +1,11 @@
+.commentsBase {
+    display: flex;
+}
+
+.comments-footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}

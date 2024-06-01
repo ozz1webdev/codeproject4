@@ -1,3 +1,4 @@
+from typing import Any
 from django.views.generic import (
         TemplateView, ListView,
         CreateView, UpdateView,
@@ -9,9 +10,9 @@ from django.contrib.auth.mixins import (
         LoginRequiredMixin, UserPassesTestMixin
     )
 from django.shortcuts import render, get_object_or_404, reverse
-from django.http import HttpResponseRedirect
-from .forms import CreatePost, AddCommentForm
-from .models import Post, Comment
+from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
+from .forms import CreatePost
+from .models import Post, Friends
 
 # Create your views here.
 
@@ -108,21 +109,3 @@ class PostLike(RedirectView):
         post.save()
 
         return HttpResponseRedirect(reverse('home'))
-
-
-class Comments(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
-    """
-    This class is used to add comment
-    """
-    model = Comment
-    template_name = 'home/comments.html'
-    form = AddCommentForm
-    context_object_name = 'comments'
-
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super(Comments, self).form_valid(form)
-
-    def test_func(self):
-        post = self.get_object()
-        return self.request.user == post.user

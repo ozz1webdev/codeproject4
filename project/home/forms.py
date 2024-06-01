@@ -1,6 +1,13 @@
 from django import forms
-from .models import Post, Comment
+from .models import Post
+from django.contrib import admin
 from django_summernote.widgets import SummernoteWidget
+
+
+# class CommentAdmin(admin.ModelAdmin):
+#    list_display = ('name', 'post', 'body', 'created_on')
+#    list_filter = ('name', 'created_on')
+#    search_fields = ('name', 'body', 'email')
 
 
 class CreatePost(forms.ModelForm):
@@ -27,13 +34,4 @@ class CreatePost(forms.ModelForm):
             'image': 'Image',
             'image_alt': 'Image Alt',
             'video': 'Embed Youtube Link'
-        }
-
-
-class AddCommentForm(forms.ModelForm):
-    class Meta:
-        model = Comment
-        fields = ['body',]
-        labels = {
-            'body': 'Comment'
         }

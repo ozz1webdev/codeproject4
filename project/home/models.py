@@ -37,26 +37,6 @@ class Post(models.Model):
         return self.likes.count()
 
 
-class Comment(models.Model):
-    """
-    This is a model to create a comment
-    """
-    post = models.ForeignKey(Post, on_delete=models.CASCADE,
-                             related_name='comments')
-    name = models.CharField(max_length=80)
-    body = models.TextField()
-    created_on = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        ordering = ['created_on']
-
-    def __str__(self):
-        return 'Comment {} by {}'.format(self.body, self.name)
-
-    def number_of_comments(self):
-        return self.comments.count()
-
-
 class Friends(models.Model):
     """
     Friends list
