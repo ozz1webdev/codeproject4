@@ -3,6 +3,7 @@ $(document).ready(function() {
 	// $('#detailView').hide();
     $('#flip-card').hide();
 	$('#profile-detailView').hide();
+    $('#addCommentWin').hide();
 /*
 	$('#card-button').on('click',function() {
         var id = $(this).data('id');
@@ -64,4 +65,9 @@ function flipCardBack() {
 
     $('#front').css('transform', 'rotateY(0deg)');
     $('#front').css('z-index', '10');
+}
+
+function addCommentWin(post_id) {
+    $('#addCommentWin').slideDown();
+    $('#addCommentWin').load('/comments/addcomment/' + post_id + '/');
 }

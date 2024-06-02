@@ -9,7 +9,7 @@ class Comments(models.Model):
     """
     This is a model to create a comment
     """
-    user = models.ForeignKey(User, related_name="comments", on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name="comments_user", on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE,
                              related_name='comments')
     name = models.CharField(max_length=80)
@@ -26,8 +26,12 @@ class Comments(models.Model):
         return self.comments.count()
 
 
-@receiver(post_save, sender=User)
+@receiver(post_save, sender=Post)
 def create_comment(instance, created, **kwargs):
     """Create or update comment"""
     if created:
-        Comments.objects.create(user=instance)
+        Comments.objects.create(post=instance,
+                                name=instance.user.username,
+                                user_id=instance.user.id,
+                                body=instance.content
+                                )

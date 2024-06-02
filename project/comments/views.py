@@ -1,4 +1,5 @@
 from .models import Comments
+from home.models import Post
 from .forms import AddCommentForm
 from django.views.generic import (
     TemplateView, ListView,
@@ -8,10 +9,11 @@ from django.views.generic import (
 from django.contrib.auth.mixins import (
     LoginRequiredMixin, UserPassesTestMixin
 )
+
 # Create your views here.
 
 
-class Comments(ListView):
+class Comments(TemplateView):
     """
     This class is used to display all comments
     """
@@ -19,27 +21,34 @@ class Comments(ListView):
     model = Comments
     context_object_name = 'comments'
     form_class = AddCommentForm
+    form = AddCommentForm()
     success_url = '/'
+
+    def get_context_data(self, **kwargs):
+        context = super(Comments, self).get_context_data(**kwargs)
+        context['form'] = self.form
+        context['title'] = Post.objects.get(id=self.kwargs['pk']).title
+        context['image'] = Post.objects.get(id=self.kwargs['pk']).image
+        context['comments'] = Comments.model.objects.filter(post=self.kwargs['pk'])
+        context['post'] = Post.objects.get(id=self.kwargs['pk']).pk
+        return context
 
     def get_queryset(self):
         return Comments.model.objects.filter(post=self.kwargs['pk'])
 
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super(AddComment, self).form_valid(form)
 
-
-class AddComment(LoginRequiredMixin, CreateView):
+class AddComment(CreateView):
     """
     This class is used to add comment
     """
     model = Comments
-    template_name = 'comments/comments.html'
+    template_name = 'comments/addComment.html'
     form_class = AddCommentForm
-    success_url = '/comments'
+    # form = AddCommentForm()
+    # success_url = '/comments'
 
     def form_valid(self, form):
-        form.instance.user = self.request.user
+        form.instance.id = 1
         return super(AddComment, self).form_valid(form)
 
 

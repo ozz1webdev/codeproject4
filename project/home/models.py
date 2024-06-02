@@ -11,8 +11,8 @@ class Post(models.Model):
     This is a model to create a post
     """
     user = models.ForeignKey(User, related_name='post_owner', on_delete=models.CASCADE)
-    title = models.CharField(max_length=300, unique=True, null=False, blank=False)
-    slug = models.SlugField(max_length=200, unique=True)
+    title = models.CharField(max_length=300, unique=False, null=False, blank=False)
+    slug = models.SlugField(max_length=200, unique=False)
     content = models.TextField()
     image = ResizedImageField(
         default='default.jpg',
