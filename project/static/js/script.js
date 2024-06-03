@@ -71,3 +71,6 @@ function addCommentWin(post_id) {
     $('#addCommentWin').slideDown();
     $('#addCommentWin').load('/comments/addcomment/' + post_id + '/');
 }
+function closeAddCommentWin() {
+    $('#addCommentWin').slideUp();
+}

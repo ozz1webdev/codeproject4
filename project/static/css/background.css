@@ -4,9 +4,11 @@ html, body {
     height: 100%;
   }
   body {
-    background-image: linear-gradient(315deg, #5a0861 0%, #551e89 74%);
+    background: #00aa77;
+    background-image: url("../images/zenbg-1.png"), url("../images/zenbg-2.png");
+    background-repeat: repeat-x, repeat;  
   }
-  bodyy {
+  bbody {
     background: url('../images/forest-night.jpg');
     background-size: cover;
   }

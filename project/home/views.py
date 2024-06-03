@@ -14,7 +14,12 @@ from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from .forms import CreatePost
 from .models import Post, Friends
 
-# Create your views here.
+
+class about(TemplateView):
+    """
+    This class is used to display about page
+    """
+    template_name = 'home/about.html'
 
 
 class home(ListView):

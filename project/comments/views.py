@@ -24,15 +24,6 @@ class Comments(TemplateView):
     form = AddCommentForm()
     success_url = '/'
 
-    def get_context_data(self, **kwargs):
-        context = super(Comments, self).get_context_data(**kwargs)
-        context['form'] = self.form
-        context['title'] = Post.objects.get(id=self.kwargs['pk']).title
-        context['image'] = Post.objects.get(id=self.kwargs['pk']).image
-        context['comments'] = Comments.model.objects.filter(post=self.kwargs['pk'])
-        context['post'] = Post.objects.get(id=self.kwargs['pk']).pk
-        return context
-
     def get_queryset(self):
         return Comments.model.objects.filter(post=self.kwargs['pk'])
 
@@ -46,6 +37,17 @@ class AddComment(CreateView):
     form_class = AddCommentForm
     # form = AddCommentForm()
     # success_url = '/comments'
+
+    def post(self, request, *args, **kwargs):
+        return super(AddComment, self).post(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super(AddComment, self).get_context_data(**kwargs)
+        context['title'] = Post.objects.get(id=self.kwargs['pk']).title
+        context['image'] = Post.objects.get(id=self.kwargs['pk']).image
+        context['comments'] = Comments.model.objects.filter(post=self.kwargs['pk'])
+        context['post'] = Post.objects.get(id=self.kwargs['pk']).pk
+        return context
 
     def form_valid(self, form):
         form.instance.id = 1

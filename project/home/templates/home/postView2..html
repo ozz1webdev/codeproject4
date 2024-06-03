@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% load embed_video_tags %}
 {% block title%}Post View{% endblock %}
 
 {% block content %}
@@ -12,18 +11,6 @@
 
         {% if post.image %}
         <img src="{{ post.image.url }}" alt="{{ post.image_alt }}" />
-        {% endif %}
-
-        {% if post.video %}
-        <iframe
-            width="560"
-            height="315"
-            src="{{ post.video }}"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-        ></iframe>
         {% endif %}
 
         <p>{{ post.created_on }}</p>

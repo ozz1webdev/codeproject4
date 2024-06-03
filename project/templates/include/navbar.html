@@ -13,6 +13,11 @@
               <img src="{% static 'icons/home.png' %}" alt="home logo" border="0">
               Home</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.resolver_match.view_name == 'about' %}active{% endif %}" href="{% url 'about' %}">
+              <img src="{% static 'icons/info.png' %}" alt="post about" border="0">
+              About</a>
+          </li>
           {% if request.user.is_authenticated %}
             <li class="nav-item">
               <a class="nav-link" href="{% url 'profile' request.user.id %}">

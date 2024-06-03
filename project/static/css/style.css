@@ -1,11 +1,11 @@
 html, body {
-    color:white;
+    color:black;
     text-shadow: 0px 0px 2px black;
 }
 /* GLASS CARD */
 
 .glass {
-    background: rgba( 42, 97, 170, 0.1 );
+    background-color: rgba( 42, 97, 170, 0.1 );
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     backdrop-filter: blur( 3px );
     -webkit-backdrop-filter: blur( 3px );
@@ -15,7 +15,7 @@ html, body {
 .welcome{
     text-align: center;
     justify-content: center;
-    color:whitesmoke;
+    color:black;
     text-shadow: 0px 0px 2px black;
 }
 .home-container {
@@ -23,7 +23,7 @@ html, body {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    color:white;
+    color:black;
     width: 100%;
     height: 88%;
     text-shadow: 0px 0px 2px black;
@@ -40,9 +40,6 @@ html, body {
 
 
 /* Navbar style */
-.navbar-brand {
-    color:white;
-}
 .navbar-brand>img {
     width: 120px;
     height: 30px;
@@ -52,16 +49,11 @@ html, body {
     height: 30px;
 }
 .navbar-nav>li>a {
-    color: white;
-    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+    color: black;
 }
 
 .navbar-nav>li>a:hover, .navbar-nav>li>a:focus {
     color: red;
-}
-.active {
-    border-bottom: 2px solid var(--blue);
-    font-weight: 500;
 }
 
 /* footer style */
@@ -80,7 +72,7 @@ html, body {
     position: absolute;
     top:15px;
     width: 10%;
-    color:white;
+    color:black;
     text-align: center;
     font-size: 0.5rem;
     text-shadow: 0px 0px 2px black;
@@ -104,7 +96,7 @@ html, body {
 }
 /* Add Post */
 .addPostCard {
-    color:white;
+    color:black;
     width: 560px;
     padding: 20px;
     margin: 20px;
