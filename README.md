@@ -9,6 +9,66 @@
 
 ## Features
 
-- **Share Media:** Share Images with friends and followers
+- **Share Media:** Share Images private for friends only or public for all
 - **Connect with friends:** Leave a Comment or chat in the room or private
 - **Profile:** Customize your personal profile
+- **Like:** Press the like button if you like a post
+---
+
+## User Stories
+
+### Agile Development
+
+This project followed an agile methodology with an initial focus on developing a functional site that covered all key user stories. Additional features and functionalities were added incrementally.
+
+
+## Design
+
+### Color Shame
+The Background image is from a online generator site Thanks to [ZenBQ](https://galactic.ink/bg/)
+
+### Typography
+Open Sans font is used
+
+### Icons 
+-**Icons:** is from [FLATICON](https://www.flaticon.com/)
+-**Favicon:** is from [Favicon Generator](https://favicon.io/favicon-converter/)
+
+## User Experience
+
+### Pages
+
+- **Welcome**
+![Welcome](readme/images/main.png)
+
+- **After login**
+![Home](readme/images/after_login.png)
+
+- **Create Post**
+![Create Post](readme/images/create_post.png)
+
+- **Edit Post**
+![Edit Post](readme/images/edit_post.png)
+
+- **View Post**
+![View Post](readme/images/show_post.png)
+
+- **User Profile**
+![User Profile](readme/images/user_profile.png)
+
+- **Edit Profile**
+![Edit Profile](readme/images/edit_profile.png)
+
+- **View Comments**
+![View Comments](readme/images/view_comments.png)
+
+- **Add Comment**
+[!Add Comment](readme/images/addComment.png)
+
+
+
+
+## Database
+
+
+
