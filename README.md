@@ -19,12 +19,12 @@
 
 ### Agile Development
 
-This project followed an agile methodology with an initial focus on developing a functional site that covered all key user stories. Additional features and functionalities were added incrementally.
+This project followed an agile methodology using github project.
 
 
 ## Design
 
-### Color Shame
+### Colors and Background
 The Background image is from a online generator site Thanks to [ZenBQ](https://galactic.ink/bg/)
 
 ### Typography
