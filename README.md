@@ -66,9 +66,72 @@ Open Sans font is used
 [!Add Comment](readme/images/addComment.png)
 
 
+##Technologies
+
+### Backend
+
+- **Python:** The main programming language for backend development.
+- **Django:** The backend python framework.
+- **Django Allauth:** For Authentication.
+- **gunicorn:** For Django hosting.
+- **nginx:** The web server.
+- **Sqlite:** The database.
+
+### Frontend
+
+- **HTML**: The standard markup language for creating web pages.
+- **CSS**: Styles web page layout and design.
+- **JavaScript**: Adds interactivity to web pages.
+- **Bootstrap**: A front-end framework for responsive, mobile-first web development.
+
+## Packages
+
+For a complete list see requirements.txt
+
+## Known Issues
+
+1. Search Button: Under Construction
+2. Followers List: Under Construction
+3. Chat : Under Construction
+4. Left Panel: Widgets and more apps Place (Under Construction)
+5. Reset Password 
+
+## Future Implementation
+
+- **React:** The Complate Project will be with React implementation
+- **Notifications:** The user will be informt with Messages
+
+## Deployment
+
+### Nginx and Gunicorn
+The Friends Project is hostet in a private server using nginx and gunicorn.<br>
+
+### Deploy to Heroku
+
+#### Create and Set Up Your App
+
+1. **Log in** to your Heroku Dashboard: [Heroku Dashboard](https://devcenter.heroku.com/articles/heroku-dashboard).
+2. Click "**New**" and select "**Create new app**".
+3. **Name your app** and choose a region. Click "**Create app**".
+4. Go to the "**Deploy**" tab and choose "**GitHub**" as the deployment method.
+5. **Connect Heroku to GitHub** and authorize access to your project repository.
+6. Select your project repository.
 
 
-## Database
+### Cloning the Repository
 
+Creating a clone allows you to make a local copy of the repository to run the project on your machine. Follow these steps to clone the repository:
 
+1. Navigate to [Friends Repository](https://github.com/ozz1webdev/codeproject4).
+2. Click on the "**Code**" button at the top of the list of files.
+3. Select the "**HTTPS**" option and copy the provided URL to your clipboard.
+4. Open your code editor and, in the terminal, navigate to your desired directory.
+5. Type `git clone` followed by the URL you copied.
+6. Press Enter, and Git will clone the repository to your local machine.
+
+By following these steps, you'll have a local copy of the Tech Corner project that you can modify and run as needed.
+
+### Install Requirements
+
+After Creating the Virtual Enviroment using pip3 : pip3 install -r requirements.txt
 
