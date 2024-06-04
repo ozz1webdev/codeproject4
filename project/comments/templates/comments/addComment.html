@@ -2,7 +2,7 @@
 
     {% if user.is_authenticated %}
 
-        <form id="addCommentForm" method="post"  action="http://localhost:8000/comments/addcomment/{{ post_id }}/" enctype="multipart/form-data">
+        <form id="addCommentForm" method="post"  action="https://patchwerk.ddns.net/comments/addcomment/{{ post_id }}/" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form|crispy }}
             <input type="submit" class="btn btn-primary" value="Add Comment">
