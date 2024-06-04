@@ -7,3 +7,8 @@
 </p>
 <p align="center">Visit :arrow_right:<a href="http://patchwerk.ddns.net/">Friends Website</a></p>
 
+## Features
+
+- **Share Media:** Share Images with friends and followers
+- **Connect with friends:** Leave a Comment or chat in the room or private
+- **Profile:** Customize your personal profile
