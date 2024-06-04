@@ -1,0 +1,7 @@
+{% load static %}
+<h1>Freunde</h1>
+{% for friend in friends %}
+    <a href="{% url 'profile' friend.friend_id %}">
+    <img src="{{ friend.followed_user.profile_image.url }}" alt="freunde profile image" width="40" height="40" />    
+    {{ friend.friend_id.user }}</a>
+{% endfor %}

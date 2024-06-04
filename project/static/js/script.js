@@ -4,20 +4,8 @@ $(document).ready(function() {
     $('#flip-card').hide();
 	$('#profile-detailView').hide();
     $('#addCommentWin').hide();
-/*
-	$('#card-button').on('click',function() {
-        var id = $(this).data('id');
-        var page_url = '/postView/' + id + '/';
+    // $('#followers-list').load('/followers/');
 
-        $('#flip-card').slideDown('slow');
-        $('#flip-card-front').load(page_url);
-
-        $('#detailView').slideToggle('slow');
-						//slideToggle, fadeToggle
-        $('#detailView').load(page_url);
-
-    });
-*/
 });
 
 function cardButtonClick(id) {
@@ -74,3 +62,4 @@ function addCommentWin(post_id) {
 function closeAddCommentWin() {
     $('#addCommentWin').slideUp();
 }
+

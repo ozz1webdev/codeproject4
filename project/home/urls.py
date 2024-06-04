@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import (addPost, about, home, postView,
                     postView2, DeletePost, EditPost,
-                    PostLike)
+                    PostLike, Follow, Followers)
 
 urlpatterns = [
     path('add/', addPost.as_view(), name='addPost'),
@@ -11,5 +11,7 @@ urlpatterns = [
     path('delete/<slug:pk>/', DeletePost.as_view(), name='deletePost'),
     path('edit/<slug:pk>/', EditPost.as_view(), name='editPost'),
     path('like/<slug:pk>/', PostLike.as_view(), name='post_like'),
+    path('follow/<slug:pk>/', Follow.as_view(), name='follow'),
+    path('followers/', Followers.as_view(), name='followers'),
     path('', home.as_view(), name='home'),
 ]

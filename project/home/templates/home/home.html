@@ -48,24 +48,29 @@
                             {% endif %}
                             
                         </div>
-                        <hr>
                         <div class="card-footer">
-                            <p class="card-text"><small>Added {{ post.created_on }} from {{ post.user }}</small></p>
-                            <span><strong>Likes {{ post.likes.count }}</strong></span>
+                            <p class="card-text"><small>Added {{ post.created_on }} from <strong> <a href="{% url 'profile' post.user.pk %}"> {{ post.user }} </a></strong></small></p>
+                            <span><strong>
+                                <img src="{% static 'icons/like.png' %}" alt="like icon" width="20" height="20" />
+                                Likes {{ post.likes.count }}</strong></span>
                         </div>
                     </div>
-            {% endfor %}            
+            {% endfor %}
         </div>
         
         <!--RIGHT PANEL-->
+        <!-- FRIENDS LIST-->
         <div class="right-panel">
             <div class="friendsList">
                 <h5>
                     <img src="{% static 'icons/freunde2.png' %}" alt="freunde icon" width="20" height="20" />
-                    Friends
+                    Followers
                     <hr>
                 </h5>
+                <div id="followers-list" class="followers-list">
+                </div>
             </div>
+        <!--CHAT-->
             <div class="chat">
                 <h5>
                     <img src="{% static 'icons/chat.png' %}" alt="chat icon" width="20" height="20" />
@@ -74,24 +79,9 @@
                 <hr>
             </div>
         </div>
+
         <!--END OF RIGHT PANEL-->
         
-<!-- First Version of Flip-Card
-
-        <div class="flip-card" id="flip-card">
-            <div id="flip-card-inner" class="flip-card-inner">
-                <div class="flip-card-front" id="flip-card-front">
-                </div>
-                <div class="flip-card-back">
-                    <h1>Comments</h1>
-                    <p>Architect & Engineer</p>
-                    <p>We love that guy</p>
-                    <button class="btn btn-primary" onclick="flipCardBack()">Back</button>
-                    <div id="postView_Close_Button" onclick="postView_Close_Button()" class="btn btn-primary">Close</div>
-                </div>
-            </div>
-        </div>
--->
 <!--FLIP-BOX-->
         <div class="flip-box" id="flip-card">
             <div id="front" class="front">

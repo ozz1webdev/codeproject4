@@ -22,9 +22,13 @@
             <p>Hobbys : {{ profile.hobbys }}</p>
             <p>Posts : {{ profile.user.post_owner.count }}</p>
             
-            {% if request.user == profile.user %}
+            {% if request.user.pk == profile.user.pk %}
                 <button id="editProfileButton" class="btn btn-primary w-25 mb-4">Edit Profile</button>
             {% endif %}
+            {% if request.user.pk is not profile.user.pk %}
+                <a href="#" class="btn btn-primary w-25 mb-4"><img src="{% static 'icons/follow.png' %}" height="40px" width="40px"/> Follow</a>
+            {% endif %}
+
 
         </div>
         <div class="profile-posts">

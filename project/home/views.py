@@ -11,8 +11,10 @@ from django.contrib.auth.mixins import (
     )
 from django.shortcuts import render, get_object_or_404, reverse
 from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
+from django.urls import reverse_lazy
 from .forms import CreatePost
 from .models import Post, Friends
+from profiles.models import Profile
 
 
 class about(TemplateView):
@@ -114,3 +116,41 @@ class PostLike(RedirectView):
         post.save()
 
         return HttpResponseRedirect(reverse('home'))
+
+
+class Follow(LoginRequiredMixin, UserPassesTestMixin, CreateView):
+    """
+    This class is used to follow user
+    """
+    model = Friends
+    fields = ['user_id', 'friend_id']
+
+    def get(self, request, *args, **kwargs):
+        followed_user = request.GET.get.kwargs.get('friend_id')
+        user_id = request.GET.get.kwargs.get('user_id')
+
+        if user_id == request.user.pk:
+            if Friends.objects.filter(user_id, followed_user).exists():
+                Friends.objects.filter(user_id=request.user.pk, friend_id=followed_user).delete()
+            else:
+                Friends.objects.create(user=request.user.pk, followed_user=followed_user)
+            return HttpResponseRedirect(reverse_lazy('home'))
+
+    def test_func(self):
+        user_id = self.get_object().pk
+        return self.request.user == user_id
+
+
+class Followers(ListView):
+    """
+    This class is used to display all posts
+    """
+    template_name = 'home/follow.html'
+    model = Friends
+    context_object_name = 'friends'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['profile'] = Profile.objects.all()
+        context['friendUsername'] = 
+        return context

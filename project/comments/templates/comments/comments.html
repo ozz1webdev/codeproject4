@@ -15,21 +15,18 @@
         {% for comment in comments %}
             <div class="Comment">
                 <hr>
-                <h3>Title: {{ comment.post.title }}</h3>
-                <h3>Name: {{ comment.name }}</h3>
-                <h3>Post id: {{ post }}</h3>
-                <h3>User: {{ comment.user }}</h3>
+                <h3>User: <a href="{% url 'profile' comment.user.pk %}">{{ comment.user }}</h3></a>
                 <p>Comment: {{ comment.body }}</p>
                 <p>Created on: {{ comment.created_on }}</p>
-            </div>
+                {% if user_id == comments.user_id.all %}
+                    <a class="btn btn-primary" href="{% url 'editComment' comments.post.id %}">Edit</a>
+                    <a class="btn btn-danger" href="{% url 'deleteComment' comments.post.id %}">Delete</a>
+                {% endif %}
+                </div>
         {% endfor %}
     </div>
-
+    
     <div class="comments-footer">
-        {% if user == comments.post.user %}
-            <a class="btn btn-primary" href="{% url 'editComment' comments.post.id %}">Edit</a>
-            <a class="btn btn-danger" href="{% url 'deleteComment' comments.post.id %}">Delete</a>
-        {% endif %}
         <button class="btn btn-primary" onclick="flipCardBack()">Back</button>
         <div id="postView_Close_Button" onclick="postView_Close_Button()" class="btn btn-primary">Close</div>
 

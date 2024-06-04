@@ -2,7 +2,7 @@
 
 <div #id="postView" class="postView">
     <div class="postView-header">
-        <h1>{{ post.title }}</h1>
+        <h1>{{ post.title }} from <a href={% url 'profile' post.user.pk %}>{{ post.user }}</h1></a>
     </div>
     <hr>
     <div class="postView-media">
