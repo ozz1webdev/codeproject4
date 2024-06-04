@@ -31,8 +31,8 @@ The Background image is from a online generator site Thanks to [ZenBQ](https://g
 Open Sans font is used
 
 ### Icons 
--**Icons:** is from [FLATICON](https://www.flaticon.com/)
--**Favicon:** is from [Favicon Generator](https://favicon.io/favicon-converter/)
+- **Icons:** are from [FLATICON](https://www.flaticon.com/)
+- **Favicon:** are from [Favicon Generator](https://favicon.io/favicon-converter/)
 
 ## User Experience
 
@@ -81,8 +81,12 @@ Open Sans font is used
 
 - **HTML**: The standard markup language for creating web pages.
 - **CSS**: Styles web page layout and design.
-- **JavaScript**: Adds interactivity to web pages.
+- **JQuery**: Adds interactivity to web pages.
 - **Bootstrap**: A front-end framework for responsive, mobile-first web development.
+
+## Database Structure
+
+![Database Structure](readme/images/databaseStruct.png)
 
 ## Packages
 
@@ -98,7 +102,7 @@ For a complete list see requirements.txt
 
 ## Future Implementation
 
-- **React:** The Complate Project will be with React implementation
+- **React:** The Complete Project will be with React implementation
 - **Notifications:** The user will be informt with Messages
 
 ## Deployment
