@@ -17,6 +17,63 @@
 
 ## User Stories
 
+## 1. User Registration
+- **As a** new visitor  
+- **I want to** register for an account by providing my email, username, and password  
+- **So that** I can access additional features like logging in and posting comments  
+---
+
+## 2. User Login
+- **As a** registered user  
+- **I want to** log in by entering my username/email and password  
+- **So that** I can access my account and participate in commenting  
+---
+
+## 4. Post Comment
+- **As a** logged-in user  
+- **I want to** post a comment on a blog post or article  
+- **So that** I can share my opinion and engage with the content  
+---
+
+## 5. View Comments
+- **As a** visitor or user  
+- **I want to** view all comments on a blog post or article  
+- **So that** I can read what other people are saying about the content  
+---
+
+## 6. Edit Comment
+- **As a** logged-in user  
+- **I want to** edit a comment I previously posted  
+- **So that** I can correct mistakes or update my opinion  
+---
+
+## 7. Delete Comment
+- **As a** logged-in user  
+- **I want to** delete a comment I previously posted  
+- **So that** I can remove content that I no longer want to be visible  
+---
+
+## 9. Like/Dislike Comment
+- **As a** logged-in user  
+- **I want to** like or dislike other users’ comments  
+- **So that** I can express my agreement or disagreement with their opinions  
+---
+
+## 10. View Profile
+- **As a** logged-in user  
+- **I want to** view my profile page, including my comments and account settings  
+- **So that** I can see my activity and manage my account  
+---
+
+## 11. User Logout
+- **As a** logged-in user  
+- **I want to** log out of the website  
+- **So that** I can ensure no one else can use my account from this device  
+---
+
+### Acceptance Criteria:
+- A "logout" option is visible when the user is logged in.
+- The user is logged out of their session after clicking the logout button.
 ### Agile Development
 
 This project followed an agile methodology using github project.
