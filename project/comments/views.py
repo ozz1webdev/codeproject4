@@ -11,6 +11,7 @@ from django.contrib.auth.mixins import (
 )
 from django.urls import reverse_lazy
 from django.utils import timezone
+from django.contrib import messages
 
 
 class Comments(TemplateView):
@@ -47,6 +48,7 @@ class AddComment(LoginRequiredMixin, CreateView):
         form.instance.created_on = timezone.now()
         form.instance.user_id = self.request.user.id
         form.instance.post_id = self.kwargs['pk']
+        messages.success(self.request, "Comment Created successfully!")
         return super(AddComment, self).form_valid(form)
 
     def get_context_data(self, **kwargs):

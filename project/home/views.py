@@ -14,7 +14,9 @@ from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.urls import reverse_lazy
 from .forms import CreatePost
 from .models import Post, Friends
+from comments.models import Comments
 from profiles.models import Profile
+from django.contrib import messages
 
 
 class about(TemplateView):
@@ -49,6 +51,7 @@ class addPost(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.user = self.request.user
+        messages.success(self.request, "Post Created successfully!")
         return super(addPost, self).form_valid(form)
 
 
@@ -139,6 +142,17 @@ class Follow(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     def test_func(self):
         user_id = self.get_object().pk
         return self.request.user == user_id
+
+
+class PostDetail(DetailView):
+    template_name = 'home/postDetail.html'
+    model = Post
+    context_object_name = 'post'
+
+    def get_context_data(self, **kwargs):
+        context = super(PostDetail, self).get_context_data(**kwargs)
+        context['comments'] = Comments.objects.filter(post=self.kwargs['pk'])
+        return context
 
 
 class Followers(ListView):

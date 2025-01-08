@@ -1,0 +1,41 @@
+.profile-detailView {
+    width:60%;
+    height: 70%;
+    position: absolute;
+    left:15%;
+    top: 15%;
+    bottom:auto;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    overflow: auto;
+}
+
+.profile-img {
+    width: 280px;
+    height: 300px;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.profile-img img {
+    border-radius: 8px;
+    width: 100%;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.info {
+    width: 100%;
+    text-align: center;
+}
+
+.profile-recipes {
+    width: 100%;
+}

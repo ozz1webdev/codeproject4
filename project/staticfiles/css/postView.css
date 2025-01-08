@@ -1,0 +1,49 @@
+.postView {
+    color: black;
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    text-shadow: 0px 0px 2px black;
+}
+
+.postView-header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 2px;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 0px 0px 2px black;
+}
+.postView-media {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    text-shadow: 0px 0px 2px black;
+}
+
+.postView-footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2px;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    text-shadow: 0px 0px 2px black;
+}
+
+@media screen and (max-width: 480px) {
+    .postView-media {
+        width: 100%;
+    }
+    .postView-media > img {
+    }
+ }

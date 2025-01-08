@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title%}Post Detail{% endblock %}
+
+{% block content %}
+        {% if messages %}
+            <div class="alert-container">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    <div class="postDetailContainer">
+        <div class="postDetailTitle">
+            <h1>{{ post.title }} from <a href={% url 'profile' post.user.pk %}>{{ post.user }}</h1></a>
+        </div>
+        <div class="postDetailImg">
+            {% if post.image %}
+                <img src="{{ post.image.url }}" alt="{{ post.image_alt }}" width="600px" height="400px"  />
+            {% else%}
+                <p>No Image</p>
+            {% endif %}
+        </div>
+        <div class="postDetailContent">
+            <p>{{post.content|safe|truncatechars:1000}}</p>
+        </div>
+        <div class="postDetailFooter">
+            <p class="card-text"><small>Added {{ post.created_on }} from <strong> <a href="{% url 'profile' post.user.pk %}"> {{ post.user }} </a></strong></small></p>
+            <span><strong>
+                <img src="{% static 'icons/like.png' %}" alt="like icon" width="20" height="20" />
+                Likes {{ post.likes.count }}</strong>
+            </span>
+        </div> <br />
+        <div class="postDetailbuttons">
+            <button onclick="window.location.href='{%url 'home'%}'" type="button" class="btn btn-primary postDetailButton">Back</button>
+            <button onclick="window.location.href='{%url 'addComment' post.id%}'" type="button" class="btn btn-primary postDetailButton">Comment</button>
+            {% if user == post.user %}
+                <a class="btn btn-primary postDetailButton" href="{% url 'editPost' post.id %}">Edit</a>
+                <a class="btn btn-danger postDetailButton" href="{% url 'deletePost' post.id %}">Delete</a>
+            {% endif %}
+        </div>
+        <div class="postDetailComments">
+            <h2>Comments</h2>
+            {% for comment in post.comments.all %}
+                <p>{{ comment.body }}</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

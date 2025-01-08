@@ -1,0 +1,29 @@
+.postDetailContainer {
+	display:flex;
+	text-align: center;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+
+}
+.postDetailContainer>title {
+	display:flex;
+	justify-content: center;
+	text-align: center;
+}
+.postDetailContainer>postDetailImg>img {
+	width: 100%;
+}
+.postDetailContainer>postDetailFooter>span>img {
+	width: 20px;
+	height: 20px;
+}
+.postDetailButtons {
+	display: flex;
+	gap:5px;
+	flex-direction: row;
+}
+
+.postDetailButton {
+	width: 100px;
+}
