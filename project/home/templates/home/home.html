@@ -6,10 +6,6 @@
 {% block content %}
 
     {% if request.user.is_authenticated %}
-        <!--LEFT PANEL-->
-        <div class="left-panel">
-            <h5>More Apps </h5>
-        </div>
             
         <!--MAIN PANEL-->
         <div class="main-panel">
@@ -58,29 +54,6 @@
             {% endfor %}
         </div>
         
-        <!--RIGHT PANEL-->
-        <!-- FRIENDS LIST-->
-        <div class="right-panel">
-            <div class="friendsList">
-                <h5>
-                    <img src="{% static 'icons/freunde2.png' %}" alt="freunde icon" width="20" height="20" />
-                    Followers
-                    <hr>
-                </h5>
-                <div id="followers-list" class="followers-list">
-                </div>
-            </div>
-        <!--CHAT-->
-            <div class="chat">
-                <h5>
-                    <img src="{% static 'icons/chat.png' %}" alt="chat icon" width="20" height="20" />
-                    Chat
-                </h5>
-                <hr>
-            </div>
-        </div>
-
-        <!--END OF RIGHT PANEL-->
         
 <!--FLIP-BOX-->
         <div class="flip-box" id="flip-card">
@@ -99,8 +72,8 @@
 
     {% else %}
         <div class="welcome">
-            <div class="ripple"></div>
-            <h1>Welcome to the Home Page</h1>
+            <h1>Welcome to <strong>Friends Social Network</strong></h1>
+            <h1>Please Login or Register</h1>
         </div>
     {% endif %}
 {% endblock %}
